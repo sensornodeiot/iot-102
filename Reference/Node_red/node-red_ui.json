@@ -1,0 +1,466 @@
+[
+    {
+        "id": "b82b1018efb6af3c",
+        "type": "tab",
+        "label": "WorkShop102 by SensorNode",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d538d733ae6a3a71",
+        "type": "ui_gauge",
+        "z": "b82b1018efb6af3c",
+        "name": "Temperature",
+        "group": "1e7772103a35a960",
+        "order": 6,
+        "width": 8,
+        "height": 8,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-40",
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a0b582c3300e0392",
+        "type": "ui_gauge",
+        "z": "b82b1018efb6af3c",
+        "name": "Humidity",
+        "group": "1e7772103a35a960",
+        "order": 7,
+        "width": 8,
+        "height": 8,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 780,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "950d253cd11572c0",
+        "type": "function",
+        "z": "b82b1018efb6af3c",
+        "name": "Date Function",
+        "func": "var str = msg.payload;\nvar time = new Date();\n\nvar formattedTime = time.toLocaleString(undefined, {\n  year: 'numeric',\n  month: 'short',\n  day: '2-digit',\n  hour: '2-digit',\n  minute: '2-digit',\n  second: '2-digit',\n  timeZone: 'Asia/Bangkok'\n});\n\nmsg.payload = formattedTime;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 300,
+        "wires": [
+            [
+                "76a878f4eebc3815"
+            ]
+        ]
+    },
+    {
+        "id": "76a878f4eebc3815",
+        "type": "ui_text",
+        "z": "b82b1018efb6af3c",
+        "group": "1e7772103a35a960",
+        "order": 2,
+        "width": 10,
+        "height": 2,
+        "name": "Time",
+        "label": "Time",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 1310,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "0775c3b0670aee6c",
+        "type": "ui_template",
+        "z": "b82b1018efb6af3c",
+        "group": "1e7772103a35a960",
+        "name": "",
+        "order": 15,
+        "width": 16,
+        "height": 1,
+        "format": "<style>\n    root,\n    a,\n    button,\n    p,\n    div {\n        -webkit-user-select: none !important;\n    }\n\n    body {\n        background: -webkit-linear-gradient(60deg,\n                #009785 0%,\n                #245aa5 50%,\n                #b800e9 100%);\n        -webkit-touch-callout: none !important;\n    }\n\n    body.nr-dashboard-theme md-toolbar,\n    body.nr-dashboard-theme md-content md-card {\n        background-color: transparent !important;\n        color: #FFFFFF;\n    }\n\n    ui-card-panel {\n        background-color: rgba(255, 255, 255, 0.1) !important;\n        border-radius: 10px !important;\n    }\n\n    #Homey_Dashboard_Navigation {\n        background-color: transparent !important;\n        border-radius: 10px !important;\n    }\n\n    .md-card.md-default-theme,\n    md-card {\n        border-radius: 10px;\n    }\n\n    .nr-dashboard-switch.ng-scope {\n        background-color: rgba(255, 255, 255, .2) !important;\n    }\n\n    .nr-dashboard-switch.ng-scope:hover {\n        background-color: rgba(255, 255, 255, .5) !important;\n    }\n\n    .nr-dashboard-theme .nr-dashboard-button .md-button {\n        background-color: rgba(255, 255, 255, .2);\n    }\n\n    .md-button {\n        border-radius: 30px;\n    }\n\n    .nr-dashboard-cardpanel layout-column {\n        background-color: rgba(255, 255, 255, 0.2) !important;\n        background-color: transparent !important;\n        border-radius: 10px !important;\n    }\n\n    .nr-dashboard-theme ui-card-panel {\n        border: none;\n    }\n\n    .nr-dashboard-template {\n        overflow-y: visible;\n    }\n\n    .nr-dashboard-theme md-content md-card {\n        background-color: transparent !important;\n    }\n\n    .nr-dashboard-theme ui-card-panel p.nr-dashboard-cardtitle {\n        color: rgba(255, 255, 255, 0.5);\n    }\n</style>\n\n<script>\n    document.ontouchmove = function (e) {\n    e.preventDefault();\n}\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 920,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb9b403eb3a7729c",
+        "type": "ui_button",
+        "z": "b82b1018efb6af3c",
+        "name": "OFF",
+        "group": "1e7772103a35a960",
+        "order": 12,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "<font size = 4>R1 ປິດ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "off",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1030,
+        "y": 220,
+        "wires": [
+            [
+                "933a19c0a79bddcd",
+                "1502fe817240f0d2"
+            ]
+        ]
+    },
+    {
+        "id": "d759d085847d5ec9",
+        "type": "ui_button",
+        "z": "b82b1018efb6af3c",
+        "name": "ON",
+        "group": "1e7772103a35a960",
+        "order": 11,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "<font size = 4>R1 ເປິດ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "on",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1070,
+        "y": 140,
+        "wires": [
+            [
+                "933a19c0a79bddcd",
+                "1502fe817240f0d2"
+            ]
+        ]
+    },
+    {
+        "id": "1502fe817240f0d2",
+        "type": "mqtt out",
+        "z": "b82b1018efb6af3c",
+        "name": "LED",
+        "topic": "LED/Topic",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "390251ab2911f09a",
+        "x": 1290,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "933a19c0a79bddcd",
+        "type": "function",
+        "z": "b82b1018efb6af3c",
+        "name": "Object State",
+        "func": "let lightstate_r1 = flow.get(\"lightstate_r1\") || false;\nlet label;\nlet color;\n\nif(msg.payload === \"on\"){\n label = '';\n    color = \"#008000\";\n lightstate_r1 = true;\n}\nelse{\n label = '';\n color = \"#FF0000\";\n lightstate_r1 = false;\n}\n\nflow.set(\"lightstate_r1\",lightstate_r1);\nmsg = {topic:label, background:color};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 140,
+        "wires": [
+            [
+                "5612c4ede943d93e"
+            ]
+        ]
+    },
+    {
+        "id": "5612c4ede943d93e",
+        "type": "ui_button",
+        "z": "b82b1018efb6af3c",
+        "name": "LED State",
+        "group": "1e7772103a35a960",
+        "order": 13,
+        "width": 2,
+        "height": 2,
+        "passthru": true,
+        "label": "{{msg.topic}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{msg.background}}",
+        "className": "",
+        "icon": "fa-power-off fa-2x",
+        "payload": "lightstate_r1",
+        "payloadType": "flow",
+        "topic": "",
+        "topicType": "str",
+        "x": 1450,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d668014a4e5e5fd9",
+        "type": "mqtt in",
+        "z": "b82b1018efb6af3c",
+        "name": "LED",
+        "topic": "LED/Topic",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "390251ab2911f09a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1190,
+        "y": 80,
+        "wires": [
+            [
+                "933a19c0a79bddcd"
+            ]
+        ]
+    },
+    {
+        "id": "352ce66d28585925",
+        "type": "mqtt in",
+        "z": "b82b1018efb6af3c",
+        "name": "",
+        "topic": "Temperature",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "390251ab2911f09a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "d538d733ae6a3a71",
+                "e607f8d414528763"
+            ]
+        ]
+    },
+    {
+        "id": "d999b6c3972bcfd8",
+        "type": "mqtt in",
+        "z": "b82b1018efb6af3c",
+        "name": "",
+        "topic": "Humidity",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "390251ab2911f09a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 520,
+        "y": 300,
+        "wires": [
+            [
+                "a0b582c3300e0392",
+                "e607f8d414528763"
+            ]
+        ]
+    },
+    {
+        "id": "e607f8d414528763",
+        "type": "ui_chart",
+        "z": "b82b1018efb6af3c",
+        "name": "",
+        "group": "1e7772103a35a960",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Data history",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#a43813",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 770,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "353f8a251c9be834",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 1,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "bdd0186be1312b12",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 3,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "fd4df6fd155f8f1b",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 4,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "89064aeb44d6d9eb",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 5,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "aee45d2d59c2f4d5",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 9,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "20583fd4790d8dfc",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "9e7dafb0373ee156",
+        "type": "ui_spacer",
+        "z": "b82b1018efb6af3c",
+        "name": "spacer",
+        "group": "1e7772103a35a960",
+        "order": 14,
+        "width": 16,
+        "height": 1
+    },
+    {
+        "id": "1e7772103a35a960",
+        "type": "ui_group",
+        "name": "Lab #10: Node-red UI",
+        "tab": "4b53d047660f4cdb",
+        "order": 1,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "390251ab2911f09a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4b53d047660f4cdb",
+        "type": "ui_tab",
+        "name": "Internet of Things 102 Workshop",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
