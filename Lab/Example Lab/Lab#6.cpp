@@ -105,6 +105,12 @@ void setup()
 
 void loop()
 {
+  // Reconnect wifi if the connection is lost
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    connectWifi();
+  }
+  
   // Reconnect to MQTT broker if the connection is lost
   if (!client.connected())
   {

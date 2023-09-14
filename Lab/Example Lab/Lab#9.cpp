@@ -167,6 +167,12 @@ void setup()
 
 void loop()
 {
+  // Reconnect wifi if the connection is lost
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    connectWifi();
+  }
+
   // Reconnect to MQTT broker if the connection is lost
   if (!client.connected())
   {
@@ -190,7 +196,6 @@ void loop()
     if (isnan(temperature) || isnan(humidity))
     {
       Serial.println("Failed to read data from DHT sensor!");
-      return;
     }
 
     // Print the temperature and humidity to serial monitor
