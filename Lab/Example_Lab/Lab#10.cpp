@@ -11,9 +11,9 @@ This code connects an ESP32 to ThingsBoard using MQTT and sends temperature and 
 #define DHT_TYPE DHT11 // DHT sensor type
 
 // ThingsBoard server and access token
-const char *thingsboardServer = "159.223.80.40"; // Replace with your ThingsBoard server
+const char *thingsboardServer = "your_thingboards_server"; // Replace with your ThingsBoard server
 const int mqttPort = 1883;
-const char *accessToken = "lmi9i60shg21zjtopfew"; // Replace with your device access token
+const char *accessToken = "your_device_access_token"; // Replace with your device access token
 
 // WiFi and MQTT clients
 WiFiClient espClient;

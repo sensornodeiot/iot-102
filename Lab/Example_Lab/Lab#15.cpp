@@ -6,8 +6,8 @@
 #include <WiFiManager.h>  // Include WiFiManager library
 
 // ThingsBoard credentials
-#define TOKEN "lmi9i60shg21zjtopfew"
-char thingsboardServer[] = "159.223.80.40";
+#define TOKEN "your_device_access_token"
+char thingsboardServer[] = "your_thingsboard_server";
 
 // Pin definitions for DHT sensor and LED
 #define DHT_PIN 4

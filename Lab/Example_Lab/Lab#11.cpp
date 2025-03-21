@@ -3,13 +3,13 @@
 #include <PubSubClient.h>
 #include "DHT.h"
 
-#define TOKEN "lmi9i60shg21zjtopfew"  // ThingsBoard token
+#define TOKEN "your_device_access_token"  // ThingsBoard token
 #define DHT_PIN 4
 #define DHT_TYPE DHT11
 #define LED_BUILTIN 5  // Built-in LED pin for ESP32
 #define BUTTON_PIN 12  // GPIO pin for the push button
 
-char thingsboardServer[] = "159.223.80.40";
+char thingsboardServer[] = "your_thingsboard_server";  // ThingsBoard server IP address
 
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
