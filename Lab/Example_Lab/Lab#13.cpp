@@ -6,8 +6,13 @@
 #include <WiFiManager.h>  // Include WiFiManager library
 
 // ThingsBoard credentials
+<<<<<<< HEAD
 #define TOKEN "your_device_access_token"
 char thingsboardServer[] = "your_thingsboard_server";
+=======
+#define TOKEN "lmi9i60shg21zjtopfew"
+char thingsboardServer[] = "159.223.80.40";
+>>>>>>> d3c87615c38a4af34fbcf3b1f0203124bf02cd66
 
 // Pin definitions
 #define DHT_PIN 4
@@ -157,7 +162,11 @@ void reconnect() {
     // Reconnect to Wi-Fi if disconnected
     if (WiFi.status() != WL_CONNECTED) {
       WiFiManager wifiManager;
+<<<<<<< HEAD
       wifiManager.autoConnect("ESP32-ConfigAP");
+=======
+      wifiManager.autoConnect("MBL-IOT");
+>>>>>>> d3c87615c38a4af34fbcf3b1f0203124bf02cd66
     }
 
     // Attempt to connect to MQTT broker

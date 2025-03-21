@@ -8,8 +8,13 @@
 #define DHT_TYPE DHT11
 #define LED_BUILTIN 5  // Built-in LED pin for ESP32
 
+<<<<<<< HEAD
 #define TOKEN "your_device_access_token"  // ThingsBoard access token
 char thingsboardServer[] = "your_thingboards_server";  // ThingsBoard server
+=======
+#define TOKEN "lmi9i60shg21zjtopfew"  // ThingsBoard access token
+char thingsboardServer[] = "159.223.80.40";  // ThingsBoard server
+>>>>>>> d3c87615c38a4af34fbcf3b1f0203124bf02cd66
 
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
